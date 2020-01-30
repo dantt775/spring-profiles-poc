@@ -2,7 +2,7 @@
 
 POC that show some examples of how to use spring profiles with profile on a bean and application.properties
 
-#####Endpoint: http://localhost:8080/springprofile/show-profile
+##### Endpoint: http://localhost:8080/springprofile/show-profile
 Running the application with ```-Dspring.profiles.active=local``` will load the application-local.properties and the beans that are anotated with ```@Profile("local")```. 
 
 ```java
