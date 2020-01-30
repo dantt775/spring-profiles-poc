@@ -24,7 +24,7 @@ Same baheaviour when running with ```-Dspring.profiles.active=dev```. The ```app
 
 But, when no arguments are passed, the default .properties file ```application.properties``` will be chosen.
 And in the bean we have to explict say that this bean will be instantiated if local AND dev profiles are not active.
-I thin you can achieve the same thing with Conditional, and it offer more resources, but i think this way more simple.
+You can achieve the same thing with Conditional, and it offer more resources, but i think this way is more simple.
 ```java
     @Bean
     @Profile("!local & !dev")
