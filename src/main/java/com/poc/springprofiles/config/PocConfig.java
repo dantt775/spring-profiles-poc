@@ -2,23 +2,29 @@ package com.poc.springprofiles.config;
 
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
+import org.springframework.core.env.Profiles;
 
 @Configuration
+
 public class PocConfig {
 
     @Bean
-    @Profile("prod")
-    public String  productionBean(){
-        return "production";
+    @Profile("!local & !dev")
+    public ExampleBean  productionBean(){
+        return new ExampleBean("172.18.19.20:3306", "production");
     }
 
     @Bean
     @Profile("local")
-    public String  localBean(){
-        return "local";
+    public ExampleBean  localBean(){
+        return new ExampleBean("localhost:3306", "local");
+    }
+
+    @Bean
+    @Profile("dev")
+    public ExampleBean  devBean(){
+        return new ExampleBean("192.168.0.1:8080", "dev");
     }
 
 }
