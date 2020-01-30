@@ -1,14 +1,17 @@
 package com.poc.springprofiles.config;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class ExampleBean {
 
 
     private String ipAddress;
-    private String environment;
+
+    @Value("${environment}")
+    private String profile;
 
 
-    public ExampleBean(String ipAddress, String environment){
-        this.environment=environment;
+    public ExampleBean(String ipAddress){
         this.ipAddress=ipAddress;
     }
 
@@ -16,7 +19,7 @@ public class ExampleBean {
         return ipAddress;
     }
 
-    public String getEnvironment() {
-        return environment;
+    public String getProfile() {
+        return profile;
     }
 }

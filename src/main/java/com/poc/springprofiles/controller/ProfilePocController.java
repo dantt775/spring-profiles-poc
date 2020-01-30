@@ -15,23 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class ProfilePocController {
 
-    @Value("${environment}")
-    private String environment;
-
     private ExampleBean environmentBean;
 
     public ProfilePocController(ExampleBean environmentBean){
         this.environmentBean=environmentBean;
     }
 
-    @GetMapping("/profile-in-application-properties")
-    public ResponseEntity<String> returnEnvironment(){
-
-        return ResponseEntity.ok(environment);
-    }
-
-
-    @GetMapping("/profile-on-bean")
+    @GetMapping("/show-profile")
     public ResponseEntity<ExampleBean> returnBean(){
         return ResponseEntity.ok(this.environmentBean);
     }
